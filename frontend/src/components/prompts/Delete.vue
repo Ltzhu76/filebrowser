@@ -8,6 +8,15 @@
         {{ $t("prompts.deleteMessageMultiple", { count: selectedCount }) }}
       </p>
     </div>
+
+    <div class="card-content">
+      <ol class="file-del-list">
+        <li v-for="index in selected" v-bind:key="index">
+          {{ req.items[index].name }}<span v-if="req.items[index].isDir">/</span>
+        </li>
+      </ol>
+    </div>
+
     <div class="card-action">
       <button
         @click="$store.commit('closeHovers')"
